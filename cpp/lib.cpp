@@ -2,6 +2,7 @@
 #include <iostream>
 #include <string.h>
 
+
 // swap 2 integers using Pointer
 
 void swap(int *x, int *y){
@@ -45,7 +46,7 @@ void find_gcd(){
 
   std::cin>>a>>b;
 
-  while(a !=b){
+  while(a != b){
 
     if (a>b) a = a-b;
     else if(b>a) b = b-a;
@@ -153,6 +154,79 @@ void display_sum(){
     }
     std::cout<<"Sum of "<<n<<" natural numbers is = "<<sum<<"\n\n";
     
+}
+
+
+// calculate power of a number using recursion
+// pow(m,n) = m**n
+// 2**9 == 2*(2**4)**2
+
+int power_recursion(int m , int n){
+    
+    if (n==0)
+        return 1;
+    
+    if (n%2 == 0)
+        return (power_recursion(m*m, n/2));
+    else
+        return m*(power_recursion(m*m, (n-1)/2));
+    
+}
+
+//##############################################################################
+
+//                  Fibonacci Problems
+
+//##############################################################################
+
+// find nth term of fibonacci series using recursion O(2^n)
+
+int fib(int n ){
+    
+    if (n == 0 ) return 0;
+    else if (n == 1) return 1;
+    else return fib(n-1)+fib(n-2);
+    
+}
+
+// print fibonacci series using for loop
+void fib_series(int n ){
+    int t0 = 0, t1 = 1, fib=0;
+    
+    
+    for (int i=0;i<n;i++){
+        
+        if (i<=1) fib = i;
+        else{
+            fib = t0 + t1;
+            t0 = t1;
+            t1 = fib;
+        }
+        std::cout<<fib<<" ";
+    }
+    
+    std::cout<<"\n\n";
+}
+
+// Below method to get fibonnacci number using memoization
+
+int F[10] = {-1};
+
+int mfib(int n){
+    if(n <= 1){
+        F[n] = n;
+        return n;
+    }
+    else{
+        if(F[n-2] == -1)
+            F[n-2] = mfib(n-2);
+        
+        if(F[n-1] == -1)
+            F[n-1] = mfib(n-1);
+        
+        F[n] = F[n-2]+F[n-1];
+        return F[n];
+    }
 }
 
 // find factorial n! of a given number
@@ -638,3 +712,60 @@ void Stack::display(){
     }
     std::cout<<std::endl;
 }
+
+void bubble_sort(int arr[], int n){
+   
+    for(int i=0 ; i<n-1; i++){
+        for(int j=0; j<n-1-i;j++){
+            if (arr[j+1] < arr[j]){
+                swap(&arr[j], &arr[j+1]);
+            }
+        }
+    }
+}
+
+void insertion_sort(int arr[], int n){
+    
+    for(int i=1; i<n; i++){
+        
+        int j = i-1;
+        int key = arr[i];
+        
+        while (j >= 0 && arr[j] > key) {
+            arr[j+1] = arr[j];
+            j--;
+        }
+        arr[j+1] = key;
+    }
+}
+
+void selection_sort(int arr[], int n){
+    int i,j,k;
+    
+    for(i=0; i < n-1; i++){
+        for(j=k=i; j < n; j++){
+            
+            if (arr[j]<arr[k]){
+                k=j;
+            }
+        }
+        swap(&arr[i], &arr[k]);
+    }
+}
+class Solution {
+public:
+    void merge(int A[], int m, int B[], int n) {
+        int i=m-1;
+        int j=n-1;
+        int k = m+n-1;
+        while(i >=0 && j>=0)
+        {
+            if(A[i] > B[j])
+                A[k--] = A[i--];
+            else
+                A[k--] = B[j--];
+        }
+        while(j>=0)
+            A[k--] = B[j--];
+    }
+};

@@ -96,6 +96,17 @@ int get_node_count(struct Node *p)
     return count;
 }
 
+int get_node_sum(struct Node *p)
+{
+    int sum = 0 ;
+    
+    while (p!=NULL) {
+        sum = sum + p->data;
+        p=p->next;
+    }
+    return sum;
+}
+
 void calculate_the_maximum(int n, int k) {
   //Write your code here.
   int max_and =0;
@@ -250,39 +261,29 @@ int main(void){
     
 //    testing Linked List Implementation of Stack
     
-    push_to_stack_ll(6);
-    push_to_stack_ll(8);
-    push_to_stack_ll(4);
-    push_to_stack_ll(10);
+    // push_to_stack_ll(6);
+    // push_to_stack_ll(8);
+    // push_to_stack_ll(4);
+    // push_to_stack_ll(10);
     
-    display_stack_ll();
+    // display_stack_ll();
     
-    printf("\n\n");
+    // printf("\n\n");
     
 //    printf("%d\n",pop_from_stack(&st));
 //    printf("%d\n",pop_from_stack(&st));
 //    printf("%d\n",pop_from_stack(&st));
 //
 //    display_stack(st);
+
+// Linked List Testing
     
-    
-    
-//    int arr[] = {9,7,1,3};
-//
-//    struct Node *first = create_link_list(arr, 4);
+   int arr[] = {9,7,1,3};
+   struct Node *first = create_link_list(arr, 4);
 //    display_link_list(first);
-//    int arr2[] = {8,2,10,4,12,6};
-//    struct Node *second = create_link_list(arr2, 6);
-//    recursive_display(second);
-//    puts("\n");
-//    recursive_reverse_display(second);
-//    puts("\n");
-//    print_int(get_node_count(first));
-//    puts("\n");
-//    print_int(get_node_count(second));
-//    puts("\n");
-//
-//    calculate_the_maximum(4, 3);
+    printf("Sum of Node Value is : %d\n",get_node_sum(first));
+
+
     return 0;
     
 }

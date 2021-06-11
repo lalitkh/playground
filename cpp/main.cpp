@@ -27,6 +27,22 @@ int main(void) {
 //    convert_to_uppercase();
 //    count_vowels_consonants();
 //    reverse_string_check_palindrom();
+//    cout<<power_recursion(2,4)<<endl;
+//    cout<<fib(8)<<endl;
+//    fib_series(8);
+//     cout<<mfib(8)<<endl;
+    
+//********** Sortings Test *************//
+    int arr[] = {8,3,5,2,4,9,1};
+    
+//    bubble_sort(arr, 7);
+    selection_sort(arr, 7);
+    
+    for(int i=0;i<7;i++){
+        cout<<arr[i]<<" ";
+    }
+    
+    cout<<"\n\n";
     
     return 0;
 }

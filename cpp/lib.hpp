@@ -24,4 +24,12 @@ void string_tokenize();
 void convert_to_uppercase();
 void count_vowels_consonants();
 void reverse_string_check_palindrom();
+int power_recursion(int,int);
+int fib(int);
+void fib_series(int);
+int mfib(int);
+void bubble_sort(int [], int);
+void insertion_sort(int [], int n);
+void selection_sort(int [], int n);
+
 #endif /* lib_hpp */
